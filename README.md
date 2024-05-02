@@ -49,7 +49,7 @@ url = 'https://v6.exchangerate-api.com/v6/TU-LLAVE-DEL-API/latest/USD'
 response = requests.get(url)
 data = response.json() # y lo guardamos con un jason!!!
 
-print data
+print (data)
 ```
 
 De igual forma, creo que es conveniente observar un json ejemplo generado por este simple código:

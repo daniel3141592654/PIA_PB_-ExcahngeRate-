@@ -109,9 +109,7 @@ url = 'https://v6.exchangerate-api.com/v6/TU-LLAVE-DEL-API/latest/USD'
 response = requests.get(url)
 data = response.json() # y lo guardamos con un jason!!!
 
-# print (data)
-
-# vamos a convertir el objeto json en un diccionario de python
+data = json.dumps(data) # lo convertimos a string para así traducirlo un diccionario
 
 dictData = json.loads(data)
 

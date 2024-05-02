@@ -7,6 +7,8 @@ listarán debajo:
   - *para leer-escribir los archivos de texto*
 - Módulo os => https://docs.python.org/es/3/library/os.html
   - *para tener los paths del directorio y todo eso XD*
+- Módulo para interpretar JSON => https://docs.python.org/es/3/library/json.html
+  - `import json` 
 - Módulo externo openpyxl => https://openpyxl.readthedocs.io/en/stable/tutorial.html
   - *Para leer y escribir libros y hojas de cálculo de excel*
 - Módulo externo matplotlib => https://matplotlib.org/
@@ -77,4 +79,41 @@ De igual forma, creo que es conveniente observar un json ejemplo generado por es
 'TJS': 10.9199, 'TMT': 3.4984, 'TND': 3.1462, 'TOP': 2.3518, 'TRY': 32.3856, 'TTD': 6.7584, 'TVD': 1.5337, 'TWD': 32.5533, 'TZS': 2589.365,
 'UAH': 39.5923, 'UGX': 3806.9317, 'UYU': 38.2699, 'UZS': 12593.787, 'VES': 36.473, 'VND': 25331.8854, 'VUV': 120.7431, 'WST': 2.7658,
 'XAF': 612.7719, 'XCD': 2.7, 'XDR': 0.7591, 'XOF': 612.7719, 'XPF': 111.4757, 'YER': 250.1308, 'ZAR': 18.5928, 'ZMW': 26.7268, 'ZWL': 13.4301}}
+```
+
+De igual forma, dicho json se puede (y de hecho se debería) convertir a un diccionario de python, para así trabajarlo en el código .py que hicimos.
+Debajo un ejemplo simple para traducir objetos de json a diccionarios de python:
+
+```python
+import json
+
+# some JSON:
+x =  '{ "name":"John", "age":30, "city":"New York"}'
+
+# parse x:
+y = json.loads(x)
+
+# the result is a Python dictionary:
+print(y["age"])
+```
+
+Usando el módulo de json, podemos guardar estos datos en una estructura propia de python ampliando el código:
+
+```python
+import requests
+import json
+
+url = 'https://v6.exchangerate-api.com/v6/TU-LLAVE-DEL-API/latest/USD'
+
+# aquí debajo está el request:
+response = requests.get(url)
+data = response.json() # y lo guardamos con un jason!!!
+
+# print (data)
+
+# vamos a convertir el objeto json en un diccionario de python
+
+dictData = json.loads(data)
+
+print(dictData['result'])
 ```

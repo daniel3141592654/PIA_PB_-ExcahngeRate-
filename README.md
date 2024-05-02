@@ -32,3 +32,22 @@ Recomiendo ampliamente revisar la documentación de estos módulos. Aún nos que
   Copiar el siguiente comando en terminal (cmd para Windows, bash, zsh, etc.):
   
   `pip install requests`
+
+## Fundamentos del código
+
+Aquí voy a poner las ideas más básicas sobre cómo hacer las tareas del programa. Estos son muy seguramente códigos de ejemplo obtenidos de la
+documentación de los módulos externos que estaremos trabajando en este proyecto.
+
+### ExchangeRate requests en python
+
+```python
+import requests #módulo externo instalado con pip
+
+url = 'https://v6.exchangerate-api.com/v6/TU-LLAVE-DEL-API/latest/USD'
+
+# aquí debajo está el request:
+response = requests.get(url)
+data = response.json() # y lo guardamos con un jason!!!
+
+print data
+```
